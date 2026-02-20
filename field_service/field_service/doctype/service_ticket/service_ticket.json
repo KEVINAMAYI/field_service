@@ -1,0 +1,144 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "ST-.YYYY.-.####",
+ "creation": "2026-02-18 18:42:43.518686",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "ticket_and_client_details_section",
+  "client",
+  "priority",
+  "column_break_ncqv",
+  "ticket_date",
+  "issue_details_section",
+  "subject",
+  "column_break_tdid",
+  "description",
+  "assignment_and_status_section",
+  "assigned_to",
+  "expected_completion",
+  "job_card",
+  "column_break_wdvz",
+  "status",
+  "actual_completion"
+ ],
+ "fields": [
+  {
+   "fieldname": "ticket_and_client_details_section",
+   "fieldtype": "Section Break",
+   "label": "Ticket and Client Details"
+  },
+  {
+   "fieldname": "ticket_date",
+   "fieldtype": "Date",
+   "label": "Ticket Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_ncqv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "client",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Client",
+   "options": "Service Client",
+   "reqd": 1
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Priority",
+   "options": "Low\nMedium\nHigh\nUrgent"
+  },
+  {
+   "fieldname": "issue_details_section",
+   "fieldtype": "Section Break",
+   "label": "Issue Details"
+  },
+  {
+   "fieldname": "subject",
+   "fieldtype": "Data",
+   "label": "Subject"
+  },
+  {
+   "fieldname": "column_break_tdid",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description"
+  },
+  {
+   "fieldname": "assignment_and_status_section",
+   "fieldtype": "Section Break",
+   "label": "Assignment and Status"
+  },
+  {
+   "fieldname": "assigned_to",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Assigned To",
+   "options": "User"
+  },
+  {
+   "fieldname": "expected_completion",
+   "fieldtype": "Date",
+   "label": "Expected Completion"
+  },
+  {
+   "fieldname": "column_break_wdvz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Open\nAssigned\nIn Progress\nOn Hold\nCompleted\nClosed",
+   "reqd": 1
+  },
+  {
+   "fieldname": "actual_completion",
+   "fieldtype": "Date",
+   "label": "Actual Completion"
+  },
+  {
+   "fieldname": "job_card",
+   "fieldtype": "Link",
+   "label": "FSM Job Card",
+   "options": "FSM Job Card"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-02-18 21:07:12.117823",
+ "modified_by": "Administrator",
+ "module": "Field Service",
+ "name": "Service Ticket",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

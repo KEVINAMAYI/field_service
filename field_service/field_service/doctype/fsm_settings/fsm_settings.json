@@ -1,0 +1,53 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-02-19 21:24:11.067644",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "company_logo_url",
+  "column_break_yukj",
+  "company_tagline"
+ ],
+ "fields": [
+  {
+   "fieldname": "company_logo_url",
+   "fieldtype": "Data",
+   "label": "Company Logo URL"
+  },
+  {
+   "fieldname": "column_break_yukj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "company_tagline",
+   "fieldtype": "Data",
+   "label": "Company Tagline"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-02-19 21:26:25.333383",
+ "modified_by": "Administrator",
+ "module": "Field Service",
+ "name": "FSM Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

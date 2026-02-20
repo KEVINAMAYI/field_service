@@ -1,0 +1,201 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-02-18 19:39:24.003725",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_gtgs",
+  "naming_series",
+  "client",
+  "column_break_adsf",
+  "service_ticket",
+  "amended_from",
+  "section_break_updv",
+  "technian",
+  "status",
+  "column_break_urcd",
+  "job_date",
+  "billing_section",
+  "qty_hrs",
+  "total_in_kshs",
+  "column_break_urom",
+  "rate",
+  "work_done_section",
+  "work_items",
+  "equipment_section",
+  "equipment",
+  "signatures_section",
+  "technician_signature",
+  "column_break_wohe",
+  "client_signature"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_gtgs",
+   "fieldtype": "Section Break",
+   "label": "Service Ticket"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "JC-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_adsf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "service_ticket",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Service Ticket",
+   "options": "Service Ticket",
+   "reqd": 1
+  },
+  {
+   "fieldname": "client",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Client",
+   "options": "Service Client"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "FSM Job Card",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "section_break_updv",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "technian",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Technian",
+   "options": "User"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Draft\nIn Progress\nCompleted\nCancelled"
+  },
+  {
+   "fieldname": "column_break_urcd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "job_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Job Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "billing_section",
+   "fieldtype": "Section Break",
+   "label": "Billing"
+  },
+  {
+   "fieldname": "qty_hrs",
+   "fieldtype": "Float",
+   "label": "Qty / Hrs"
+  },
+  {
+   "fieldname": "total_in_kshs",
+   "fieldtype": "Currency",
+   "label": "Total (KShs)"
+  },
+  {
+   "fieldname": "column_break_urom",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rate",
+   "fieldtype": "Currency",
+   "label": "Rate"
+  },
+  {
+   "fieldname": "work_done_section",
+   "fieldtype": "Section Break",
+   "label": "Work Done"
+  },
+  {
+   "fieldname": "work_items",
+   "fieldtype": "Table",
+   "label": "Work Items",
+   "options": "FSM Job Card Work Item"
+  },
+  {
+   "fieldname": "equipment_section",
+   "fieldtype": "Section Break",
+   "label": "Equipment"
+  },
+  {
+   "fieldname": "equipment",
+   "fieldtype": "Table",
+   "label": "Equipment",
+   "options": "FSM Job Card Equipment"
+  },
+  {
+   "fieldname": "signatures_section",
+   "fieldtype": "Section Break",
+   "label": "Signatures"
+  },
+  {
+   "fieldname": "column_break_wohe",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "client_signature",
+   "fieldtype": "Signature",
+   "label": "Client Signature"
+  },
+  {
+   "fieldname": "technician_signature",
+   "fieldtype": "Signature",
+   "label": "Technician Signature"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-02-19 19:31:50.919566",
+ "modified_by": "Administrator",
+ "module": "Field Service",
+ "name": "FSM Job Card",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

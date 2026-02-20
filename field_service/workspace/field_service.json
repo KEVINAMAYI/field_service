@@ -1,0 +1,106 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"H-1\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h5\\\"><b>FIELD SERVICE OVERVIEW</b></span>\",\"col\":12}},{\"id\":\"S-1\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Open Tickets\",\"col\":3}},{\"id\":\"S-2\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"In Progress\",\"col\":3}},{\"id\":\"S-3\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Completed\",\"col\":3}},{\"id\":\"S-4\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"FSM Settings\",\"col\":3}},{\"id\":\"SP-1\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"H-2\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h6\\\"><b>Quick Access</b></span>\",\"col\":12}},{\"id\":\"C-1\",\"type\":\"card\",\"data\":{\"card_name\":\"Service Operations\",\"col\":4}},{\"id\":\"C-2\",\"type\":\"card\",\"data\":{\"card_name\":\"Job Cards\",\"col\":4}},{\"id\":\"C-3\",\"type\":\"card\",\"data\":{\"card_name\":\"Clients\",\"col\":3}},{\"id\":\"C-4\",\"type\":\"card\",\"data\":{\"card_name\":\"Settings\",\"col\":1}}]",
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "icon": "tool",
+ "indicator_color": "blue",
+ "is_standard": 1,
+ "public": 1,
+ "sequence_id": 10,
+ "label": "Field Work",
+ "module": "Field Service",
+ "name": "Field Service",
+ "title": "Field Service",
+ "shortcuts": [
+  {
+   "color": "Red",
+   "label": "Open Tickets",
+   "link_to": "Service Ticket",
+   "stats_filter": "{\"status\": \"Open\"}",
+   "type": "DocType"
+  },
+  {
+   "color": "Orange",
+   "label": "In Progress",
+   "link_to": "Service Ticket",
+   "stats_filter": "{\"status\": \"In Progress\"}",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "label": "Completed",
+   "link_to": "Service Ticket",
+   "stats_filter": "{\"status\": \"Completed\"}",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "label": "FSM Settings",
+   "link_to": "FSM Settings",
+   "type": "DocType"
+  }
+ ],
+ "links": [
+  {
+   "label": "Service Operations",
+   "link_type": "DocType",
+   "type": "Card Break"
+  },
+  {
+   "label": "Service Ticket",
+   "link_to": "Service Ticket",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "label": "FSM Job Card",
+   "link_to": "FSM Job Card",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "label": "Job Cards",
+   "link_type": "DocType",
+   "type": "Card Break"
+  },
+  {
+   "label": "Draft Job Cards",
+   "link_to": "FSM Job Card",
+   "link_type": "DocType",
+   "type": "Link"
+  },
+  {
+   "label": "Submitted Job Cards",
+   "link_to": "FSM Job Card",
+   "link_type": "DocType",
+   "type": "Link"
+  },
+  {
+   "label": "Clients",
+   "link_type": "DocType",
+   "type": "Card Break"
+  },
+  {
+   "label": "Service Client",
+   "link_to": "Service Client",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "label": "Settings",
+   "link_type": "DocType",
+   "type": "Card Break"
+  },
+  {
+   "label": "FSM Settings",
+   "link_to": "FSM Settings",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  }
+ ]
+}
