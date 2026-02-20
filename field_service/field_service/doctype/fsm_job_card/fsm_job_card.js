@@ -4,18 +4,18 @@ frappe.ui.form.on('FSM Job Card', {
             frm.add_custom_button('Send Job Card PDF', function() {
                 frappe.prompt([
                     {
-                        label: 'Recipient Email',
+                        label: 'Recipient Email(s)',
                         fieldname: 'email',
                         fieldtype: 'Data',
                         options: 'Email',
-                        description: 'Leave blank to use client email'
+                        description: 'Separate multiple emails with a comma. Leave blank to use client email.'
                     }
                 ], function(values) {
                     frappe.call({
                         method: 'field_service.field_service.doctype.fsm_job_card.fsm_job_card.generate_and_email_pdf',
                         args: {
                             job_card_name: frm.doc.name,
-                            recipient_email: values.email || ''
+                            recipient_emails: values.email || ''
                         },
                         callback: function(r) {
                             if (r.message) {
@@ -24,6 +24,17 @@ frappe.ui.form.on('FSM Job Card', {
                         }
                     });
                 }, 'Send Job Card PDF', 'Send');
+            });
+        }
+    },
+
+    // Auto-populate subject from the linked Service Ticket
+    service_ticket: function(frm) {
+        if (frm.doc.service_ticket) {
+            frappe.db.get_value('Service Ticket', frm.doc.service_ticket, 'subject', function(value) {
+                if (value && value.subject) {
+                    frm.set_value('subject', value.subject);
+                }
             });
         }
     },
