@@ -4,7 +4,6 @@ from frappe.model.document import Document
 
 class ServiceTicket(Document):
     def validate(self):
-        # assigned_to is mandatory — no point creating a ticket nobody owns
         if not self.assigned_to:
             frappe.throw("Please assign the Service Ticket to a technician before saving.")
 
@@ -31,6 +30,24 @@ class ServiceTicket(Document):
             )
         except Exception as e:
             frappe.log_error(f"Failed to notify technician: {str(e)}")
+
+
+# --- Module-level permission functions (NOT inside the class) ---
+
+def get_permission_query_conditions(user):
+    if not user:
+        user = frappe.session.user
+    if "FSM Manager" in frappe.get_roles(user) or "System Manager" in frappe.get_roles(user):
+        return ""
+    return f'`tabService Ticket`.`assigned_to` = "{user}"'
+
+
+def has_permission(doc, ptype="read", user=None):
+    if not user:
+        user = frappe.session.user
+    if "FSM Manager" in frappe.get_roles(user) or "System Manager" in frappe.get_roles(user):
+        return True
+    return doc.assigned_to == user
 
 
 @frappe.whitelist()

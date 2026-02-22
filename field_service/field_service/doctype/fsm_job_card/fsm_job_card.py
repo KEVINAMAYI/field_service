@@ -30,6 +30,24 @@ class FSMJobCard(Document):
             ticket.save(ignore_permissions=True)
 
 
+# --- Module-level permission functions (NOT inside the class) ---
+
+def get_permission_query_conditions(user):
+    if not user:
+        user = frappe.session.user
+    if "FSM Manager" in frappe.get_roles(user) or "System Manager" in frappe.get_roles(user):
+        return ""
+    return f'`tabFSM Job Card`.`technician` = "{user}"'
+
+
+def has_permission(doc, ptype="read", user=None):
+    if not user:
+        user = frappe.session.user
+    if "FSM Manager" in frappe.get_roles(user) or "System Manager" in frappe.get_roles(user):
+        return True
+    return doc.technician == user
+
+
 @frappe.whitelist()
 def generate_and_email_pdf(job_card_name, recipient_emails=None):
     job_card = frappe.get_doc("FSM Job Card", job_card_name)
@@ -37,7 +55,7 @@ def generate_and_email_pdf(job_card_name, recipient_emails=None):
     # Subject — from Service Ticket
     job_subject = frappe.db.get_value("Service Ticket", job_card.service_ticket, "subject") or "Completed"
 
-    # Technician — same logic as print format: resolve doc.technician to full name
+    # Technician — resolve to full name
     tech_name = (
         frappe.db.get_value("User", job_card.technician, "full_name")
         or job_card.technician

@@ -247,3 +247,11 @@ fixtures = [
     {"dt": "Workspace", "filters": [["name", "in", ["Field Service"]]]}
 ]
 
+permission_query_conditions = {
+    "Service Ticket": "field_service.field_service.doctype.service_ticket.service_ticket.get_permission_query_conditions",
+    "FSM Job Card": "field_service.field_service.doctype.fsm_job_card.fsm_job_card.get_permission_query_conditions"
+}
+has_permission = {
+    "Service Ticket": "field_service.field_service.doctype.service_ticket.service_ticket.has_permission",
+    "FSM Job Card": "field_service.field_service.doctype.fsm_job_card.fsm_job_card.has_permission"
+}
