@@ -28,19 +28,18 @@ frappe.ui.form.on('FSM Job Card', {
         }
     },
 
-    // Auto-populate subject from the linked Service Ticket
     service_ticket: function(frm) {
-        if (frm.doc.service_ticket) {
-            frappe.db.get_value('Service Ticket', frm.doc.service_ticket, 'subject', function(value) {
-                if (value && value.subject) {
-                    frm.set_value('subject', value.subject);
-                }
-            });
-        }
+        if (!frm.doc.service_ticket) return;
+        // Auto-fill technician and client from the Service Ticket
+        frappe.db.get_value('Service Ticket', frm.doc.service_ticket, ['assigned_to', 'client'], function(v) {
+            if (!v) return;
+            if (v.assigned_to) frm.set_value('technician', v.assigned_to);
+            if (v.client)      frm.set_value('client', v.client);
+        });
     },
 
     qty_hrs: function(frm) { calculate_total(frm); },
-    rate: function(frm) { calculate_total(frm); }
+    rate:    function(frm) { calculate_total(frm); }
 });
 
 function calculate_total(frm) {
@@ -50,7 +49,7 @@ function calculate_total(frm) {
 }
 
 frappe.ui.form.on('FSM Job Card Work Item', {
-    qty: function(frm, cdt, cdn) { calculate_item_amount(frm, cdt, cdn); },
+    qty:  function(frm, cdt, cdn) { calculate_item_amount(frm, cdt, cdn); },
     rate: function(frm, cdt, cdn) { calculate_item_amount(frm, cdt, cdn); }
 });
 
